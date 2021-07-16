@@ -56,4 +56,23 @@ public class BrokenLinks {
 
 	}
 
+}
 
+try {
+
+	URL u=new URL(attribute);
+	URLConnection openConnection = u.openConnection();
+	HttpURLConnection http=(HttpURLConnection) openConnection;
+	http.connect();
+	if(http.getResponseCode()<200) {
+		System.out.println(http.getResponseCode() + attribute + "is  "  + "brokenLink");
+		brokenLInk++;
+
+	}
+}catch(Exception e) {
+	System.out.println("error");
+}
+
+}
+System.out.println(brokenLInk);
+}
